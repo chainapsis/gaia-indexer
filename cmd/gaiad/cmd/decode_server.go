@@ -4,10 +4,8 @@ package cmd
 
 import (
 	"fmt"
-	"github.com/cosmos/cosmos-sdk/codec"
-	"github.com/cosmos/cosmos-sdk/codec/types"
-	"github.com/cosmos/cosmos-sdk/x/auth/tx"
-	"github.com/cosmos/gaia/v10/app/params"
+
+	app "github.com/cosmos/gaia/v10/app"
 	"github.com/cosmos/gaia/v10/cmd/gaiad/cmd/decoder"
 	"github.com/spf13/cobra"
 )
@@ -28,19 +26,10 @@ func decoderCmd() *cobra.Command {
 				return err
 			}
 
-			amino := codec.NewLegacyAmino()
-			interfaceRegistry := types.NewInterfaceRegistry()
-			marshaler := codec.NewProtoCodec(interfaceRegistry)
-			txCfg := tx.NewTxConfig(marshaler, tx.DefaultSignModes)
-
 			d := decoder.Decoder{
-				EncodingConfig: params.EncodingConfig{
-					InterfaceRegistry: interfaceRegistry,
-					Codec:             marshaler,
-					TxConfig:          txCfg,
-					Amino:             amino,
-				},
+				EncodingConfig: app.MakeEncodingConfig(),
 			}
+
 			err = d.ListenAndServe(decodeServerFlag)
 			if err != nil {
 				fmt.Println(err)
