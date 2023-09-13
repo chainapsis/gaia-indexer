@@ -59,7 +59,7 @@ func (d *Decoder) Decode(ctx context.Context, request *DecodeRequest) (*DecodeRe
 	}
 
 	resultString, err := d.EncodingConfig.TxConfig.TxJSONEncoder()(cosmosTx)
-	fmt.Println(string(resultString))
+
 	if err != nil {
 		return nil, err
 	}
