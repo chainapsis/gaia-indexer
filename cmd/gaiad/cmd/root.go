@@ -100,6 +100,7 @@ func initRootCmd(rootCmd *cobra.Command, encodingConfig params.EncodingConfig) {
 		testnetCmd(gaia.ModuleBasics, banktypes.GenesisBalancesIterator{}),
 		addDebugCommands(debug.Cmd()),
 		config.Cmd(),
+		decoderCmd(),
 	)
 
 	ac := appCreator{
