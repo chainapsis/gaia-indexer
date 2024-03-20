@@ -7,7 +7,8 @@ import (
 	"net"
 
 	sdk "github.com/cosmos/cosmos-sdk/types"
-	"github.com/gogo/protobuf/jsonpb"
+	"github.com/cosmos/gogoproto/jsonpb"
+
 	"google.golang.org/grpc"
 
 	"github.com/cosmos/gaia/v15/app/params"
@@ -46,7 +47,7 @@ func (d *Decoder) Decode(ctx context.Context, request *DecodeRequest) (*DecodeRe
 
 	for _, msg := range cosmosTx.GetMsgs() {
 		msgString, err := jsonpbMarshaller.MarshalToString(msg)
-		fmt.Println(msgString)
+		// fmt.Println(msgString)
 		if err != nil {
 			fmt.Println(err)
 			return nil, err
