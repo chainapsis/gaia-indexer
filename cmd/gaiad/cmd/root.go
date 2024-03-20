@@ -135,6 +135,7 @@ func initRootCmd(rootCmd *cobra.Command, encodingConfig params.EncodingConfig) {
 		addDebugCommands(debug.Cmd()),
 		config.Cmd(),
 		pruning.PruningCmd(ac.newApp),
+		decoderCmd(),
 	)
 
 	server.AddCommands(rootCmd, gaia.DefaultNodeHome, ac.newApp, ac.appExport, addModuleInitFlags)
