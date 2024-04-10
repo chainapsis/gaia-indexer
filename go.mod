@@ -16,6 +16,7 @@ require (
 	github.com/cosmos/ibc-apps/middleware/packet-forward-middleware/v7 v7.1.2
 	github.com/cosmos/ibc-go/v7 v7.3.2
 	github.com/cosmos/interchain-security/v3 v3.3.0
+	github.com/gogo/protobuf v1.3.2
 	github.com/google/gofuzz v1.2.0
 	github.com/gorilla/mux v1.8.1
 	github.com/ory/dockertest/v3 v3.10.0
@@ -26,6 +27,7 @@ require (
 	github.com/spf13/viper v1.16.0
 	github.com/stretchr/testify v1.8.4
 	google.golang.org/genproto/googleapis/api v0.0.0-20231212172506-995d672761c0
+	google.golang.org/protobuf v1.32.0
 )
 
 require (
@@ -103,7 +105,6 @@ require (
 	github.com/gobwas/ws v1.1.0 // indirect
 	github.com/godbus/dbus v0.0.0-20190726142602-4481cbc300e2 // indirect
 	github.com/gogo/googleapis v1.4.1 // indirect
-	github.com/gogo/protobuf v1.3.2 // indirect
 	github.com/golang/glog v1.1.2 // indirect
 	github.com/golang/groupcache v0.0.0-20210331224755-41bb18bfe9da // indirect
 	github.com/golang/mock v1.6.0 // indirect
@@ -205,7 +206,6 @@ require (
 	google.golang.org/api v0.149.0 // indirect
 	google.golang.org/appengine v1.6.8 // indirect
 	google.golang.org/genproto/googleapis/rpc v0.0.0-20240108191215-35c7eff3a6b1 // indirect
-	google.golang.org/protobuf v1.32.0 // indirect
 	gopkg.in/ini.v1 v1.67.0 // indirect
 	gopkg.in/yaml.v2 v2.4.0 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
@@ -217,6 +217,8 @@ require (
 replace (
 	// Use cosmos keyring
 	github.com/99designs/keyring => github.com/cosmos/keyring v1.2.0
+
+	github.com/cometbft/cometbft => github.com/chainapsis/cometbft v0.37.4-querier
 
 	// Use special SDK v0.47.x release with support for both ICS and LSM
 	github.com/cosmos/cosmos-sdk => github.com/cosmos/cosmos-sdk v0.47.10-ics-lsm
