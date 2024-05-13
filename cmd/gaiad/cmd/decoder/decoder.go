@@ -46,7 +46,6 @@ func (d *Decoder) Decode(ctx context.Context, request *DecodeRequest) (*DecodeRe
 
 	for _, msg := range cosmosTx.GetMsgs() {
 		msgString, err := jsonpbMarshaller.MarshalToString(msg)
-		fmt.Println(msgString)
 		if err != nil {
 			fmt.Println(err)
 			return nil, err
