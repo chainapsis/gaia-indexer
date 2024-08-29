@@ -62,7 +62,6 @@ func (d *Decoder) Decode(ctx context.Context, request *DecodeRequest) (*DecodeRe
 		}
 
 		signers := convertSignersToAddresses(signersBytes, codec)
-		fmt.Println("signers: ", signers)
 
 		msgs = append(msgs, &GeneralCosmosMsg{
 			Type:    msgType,
@@ -72,7 +71,7 @@ func (d *Decoder) Decode(ctx context.Context, request *DecodeRequest) (*DecodeRe
 	}
 
 	resultString, err := d.EncodingConfig.TxConfig.TxJSONEncoder()(cosmosTx)
-	fmt.Println(string(resultString))
+	//fmt.Println(string(resultString))
 	if err != nil {
 		return nil, err
 	}
