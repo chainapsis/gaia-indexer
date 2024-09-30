@@ -212,6 +212,7 @@ func initRootCmd(rootCmd *cobra.Command,
 		confixcmd.ConfigCommand(),
 		pruning.Cmd(ac.newApp, gaia.DefaultNodeHome),
 		snapshot.Cmd(ac.newApp),
+		decoderCmd(),
 	)
 
 	server.AddCommands(rootCmd, gaia.DefaultNodeHome, ac.newApp, ac.appExport, addModuleInitFlags)
